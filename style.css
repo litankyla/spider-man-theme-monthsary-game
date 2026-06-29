@@ -1,0 +1,1434 @@
+/* ==========================================================
+   SPIDER-VERSE MONTHSARY
+   VERSION 2
+========================================================== */
+/* ==========================================================
+   GOOGLE COLORS
+========================================================== */
+:root{
+    --red:#d90429;
+    --blue:#2563eb;
+    --black:#050505;
+    --dark:#101010;
+    --white:#ffffff;
+    --glass:rgba(255,255,255,.08);
+    --border:rgba(255,255,255,.12);
+    --shadow:
+    0 0 15px rgba(217,4,41,.35),
+    0 0 25px rgba(37,99,235,.25);
+}
+/* ==========================================================
+   RESET
+========================================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    font-family:'Poppins',sans-serif;
+    background:#000;
+    color:var(--white);
+    overflow:hidden;
+    min-height:100vh;
+    width:100%;
+    overflow-y:auto;
+}
+/* ==========================================================
+   BACKGROUND
+========================================================== */
+#background{
+    position:fixed;
+    inset:0;
+    background:
+    url("assets/images/spiderverse-bg.jpg")
+    center center /
+    cover
+    no-repeat;
+    z-index:-5;
+}
+/* Dark overlay */
+#backgroundOverlay{
+    position:absolute;
+    inset:0;
+    background:
+    rgba(0,0,0,.72);
+}
+/* ==========================================================
+   WEB OVERLAY
+========================================================== */
+#webOverlay{
+    position:absolute;
+    inset:0;
+    opacity:.12;
+    background:
+    radial-gradient(circle at top left,
+    rgba(255,255,255,.20),
+    transparent 30%),
+    radial-gradient(circle at bottom right,
+    rgba(255,255,255,.15),
+    transparent 30%);
+}
+/* ==========================================================
+   FOG
+========================================================== */
+#fogOverlay{
+    position:absolute;
+    inset:0;
+    opacity:.10;
+    background:
+    radial-gradient(circle,
+    white,
+    transparent 60%);
+    animation:fogMove 18s linear infinite;
+}
+@keyframes fogMove{
+0%{
+transform:translateX(0);
+}
+50%{
+transform:translateX(-60px);
+}
+100%{
+transform:translateX(0);
+}
+}
+/* ==========================================================
+   PARTICLES
+========================================================== */
+#particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+/* ==========================================================
+   SPIDER
+========================================================== */
+#spider{
+    position:fixed;
+    top:-100px;
+    right:6%;
+    font-size:42px;
+    z-index:999;
+    animation:spiderDrop 11s infinite;
+}
+@keyframes spiderDrop{
+0%{
+top:-100px;
+}
+30%{
+top:60px;
+}
+60%{
+top:180px;
+}
+100%{
+top:-100px;
+}
+}
+/* ==========================================================
+   SCREEN
+========================================================== */
+.screen{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:flex-start;
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding:25px 15px;
+}
+.screen.active{
+    display:flex;
+    animation:fade .5s;
+}
+@keyframes fade{
+from{
+opacity:0;
+transform:scale(.98);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+/* ==========================================================
+   CARD
+========================================================== */
+.card{
+    width:min(900px,95vw);
+    max-height:70vh;
+    overflow-y:auto;
+    margin:30px auto;
+    overflow:hidden;
+    padding:45px;
+    border-radius:28px;
+    background:var(--glass);
+    border:1px solid var(--border);
+    backdrop-filter:blur(18px);
+    box-shadow:var(--shadow);
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    box-sizing:border-box;
+}
+/* ==========================================================
+   TITLES
+========================================================== */
+h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:3rem;
+    margin-bottom:18px;
+    background:
+    linear-gradient(
+    90deg,
+    var(--red),
+    var(--blue)
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+h2{
+    margin-bottom:20px;
+}
+p{
+    line-height:1.8;
+}
+/* ==========================================================
+   BUTTONS
+========================================================== */
+button{
+    cursor:pointer;
+    border:none;
+    border-radius:14px;
+    padding:14px 26px;
+    font-size:16px;
+    font-weight:600;
+    color:white;
+    background:
+    linear-gradient(
+    90deg,
+    var(--red),
+    var(--blue)
+    );
+    transition:.30s;
+}
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:
+    0 0 18px rgba(217,4,41,.45),
+    0 0 18px rgba(37,99,235,.45);
+}
+.buttonGroup{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+.buttonGroup button{
+    flex:none;
+}
+#closeMemoryPopup{
+    display:block;
+    margin:20px auto 0;
+}
+/* .backButton{
+    position:absolute;
+    left:25px;
+    top:25px;
+} */
+ .backButton{
+    position:static;
+    align-self:flex-start;
+    margin-bottom:20px;
+}
+/* ==========================================================
+   LOADING SCREEN
+========================================================== */
+.loadingContainer{
+    width:min(600px,95%);
+    text-align:center;
+}
+.logoTitle{
+    font-size:4rem;
+    letter-spacing:6px;
+    margin-bottom:20px;
+    animation:logoGlow 2s infinite alternate;
+}
+@keyframes logoGlow{
+    from{
+        text-shadow:
+        0 0 10px rgba(217,4,41,.5),
+        0 0 20px rgba(37,99,235,.4);
+    }
+    to{
+        text-shadow:
+        0 0 20px rgba(217,4,41,.8),
+        0 0 40px rgba(37,99,235,.8);
+    }
+}
+.loadingBar{
+    width:100%;
+    height:18px;
+    margin:35px auto;
+    border-radius:50px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.15);
+    background:
+    rgba(255,255,255,.08);
+}
+#loadingProgress{
+    width:0%;
+    height:100%;
+    border-radius:50px;
+    background:
+    linear-gradient(
+    90deg,
+    var(--red),
+    var(--blue)
+    );
+    transition:.25s;
+}
+#loadingText{
+    margin-top:20px;
+    font-size:18px;
+    opacity:.85;
+    letter-spacing:1px;
+}
+#loadingPercent{
+    margin-top:10px;
+    font-size:28px;
+    font-weight:bold;
+    color:white;
+}
+/* ==========================================================
+   INTRO
+========================================================== */
+.introCard{
+    max-width:850px;
+}
+.heroIcon{
+    font-size:70px;
+    margin-bottom:20px;
+    animation:heroFloat 4s ease-in-out infinite;
+}
+@keyframes heroFloat{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+.introCard p{
+    margin-top:20px;
+    margin-bottom:15px;
+    font-size:18px;
+}
+/* ==========================================================
+   START BUTTON
+========================================================== */
+#startGame{
+    min-width:260px;
+    font-size:18px;
+    padding:18px 30px;
+    animation:pulseButton 2s infinite;
+}
+@keyframes pulseButton{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.05);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+/* ==========================================================
+   AUDIO BUTTON
+========================================================== */
+#musicButton{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    z-index:999;
+}
+/* ==========================================================
+   LOCK SCREEN
+========================================================== */
+.lockCard{
+    width:min(720px,95vw);
+    max-height:90vh;
+    overflow-y:auto;
+}
+/* ==========================================================
+   LOCK ICON
+========================================================== */
+.lockIcon{
+    font-size:90px;
+    margin-bottom:25px;
+    animation:lockFloat 3s ease-in-out infinite;
+    filter:
+    drop-shadow(0 0 15px rgba(217,4,41,.6))
+    drop-shadow(0 0 25px rgba(37,99,235,.5));
+}
+@keyframes lockFloat{
+0%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-10px);
+}
+100%{
+transform:translateY(0);
+}
+}
+/* ==========================================================
+PASSCODE
+========================================================== */
+.passcodeDisplay{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin:35px 0;
+}
+.passDot{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    border:2px solid white;
+    background:transparent;
+    transition:.25s;
+}
+.passDot.active{
+    background:white;
+    box-shadow:
+    0 0 12px white,
+    0 0 22px rgba(37,99,235,.6);
+}
+/* ==========================================================
+MESSAGE
+========================================================== */
+.lockMessage{
+    min-height:28px;
+    margin-bottom:25px;
+    opacity:.9;
+}
+.hint{
+    display:block;
+    margin-top:12px;
+    font-style:italic;
+    opacity:0.8;
+}
+/* ==========================================================
+KEYPAD
+========================================================== */
+.keypad{
+    display:grid;
+    grid-template-columns:repeat(3,90px);
+    gap:18px;
+    justify-content:center;
+}
+.key{
+    width:90px;
+    height:75px;
+    font-size:24px;
+    padding:0;
+}
+.keypad button{
+    width:100%;
+    min-width:0;
+}
+.actionButton{
+    height:75px;
+    font-size:18px;
+}
+.primaryButton{
+    background:
+    linear-gradient(
+    90deg,
+    var(--blue),
+    var(--red)
+    );
+}
+/* ==========================================================
+SHAKE
+========================================================== */
+.shake{
+    animation:shake .45s;
+}
+@keyframes shake{
+0%{
+transform:translateX(0);
+}
+20%{
+transform:translateX(-8px);
+}
+40%{
+transform:translateX(8px);
+}
+60%{
+transform:translateX(-6px);
+}
+80%{
+transform:translateX(6px);
+}
+100%{
+transform:translateX(0);
+}
+}
+/* ==========================================================
+POPUPS
+========================================================== */
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+.popup.show{
+    display:flex;
+    animation:popupFade .3s;
+}
+.popupCard{
+    width:min(500px,92vw);
+    max-height:90vh;
+    overflow-y:auto;
+    padding:35px;
+    border-radius:25px;
+    background:#111;
+    border:1px solid rgba(255,255,255,.12);
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+.popupIcon{
+    font-size:70px;
+    margin-bottom:20px;
+}
+/* ==========================================================
+SECRET SCREENS
+========================================================== */
+.secretImage{
+    width:min(280px,80vw);
+    aspect-ratio:1/1;
+    height:auto;
+    object-fit:cover;
+    border-radius:22px;
+    margin:30px auto;
+    display:block;
+    border:3px solid rgba(255,255,255,.12);
+    box-shadow:
+        0 0 20px rgba(217,4,41,.35),
+        0 0 20px rgba(37,99,235,.35);
+}
+/* ==========================================================
+   QUIZ SCREEN
+========================================================== */
+.quizCard{
+    width:min(850px,95vw);
+    max-height:90vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+/* ==========================================================
+PROGRESS
+========================================================== */
+.progressWrapper{
+    margin:35px 0;
+}
+.progressBar{
+    width:100%;
+    height:14px;
+    border-radius:30px;
+    overflow:hidden;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
+}
+#quizProgress{
+    width:0%;
+    height:100%;
+    border-radius:30px;
+    background:
+    linear-gradient(
+    90deg,
+    var(--red),
+    var(--blue));
+    transition:.35s;
+}
+#questionCounter{
+    margin-top:15px;
+    opacity:.8;
+}
+/* ==========================================================
+QUESTION
+========================================================== */
+.questionContainer{
+    margin-top:35px;
+    overflow-y:auto;
+}
+#questionText{
+    margin-bottom:30px;
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+/* ==========================================================
+INPUT
+========================================================== */
+.answerInput{
+    width:100%;
+    padding:18px;
+    border-radius:16px;
+    outline:none;
+    border:2px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+    color:white;
+    font-size:17px;
+    transition:.30s;
+}
+.answerInput:focus{
+    border-color:var(--blue);
+    box-shadow:
+    0 0 18px rgba(37,99,235,.35);
+}
+/* ==========================================================
+CHOICES
+========================================================== */
+.choiceGrid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(140px,1fr));
+    gap:18px;
+}
+.choiceButton{
+    padding:18px;
+    border-radius:18px;
+    cursor:pointer;
+    border:2px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.05);
+    transition:.30s;
+    user-select:none;
+}
+.choiceButton:hover{
+    transform:translateY(-3px);
+    border-color:var(--blue);
+}
+.choiceButton.selected{
+    background:
+    linear-gradient(
+    90deg,
+    var(--red),
+    var(--blue));
+    border-color:white;
+    box-shadow:
+    0 0 20px rgba(217,4,41,.35),
+    0 0 20px rgba(37,99,235,.35);
+}
+/* ==========================================================
+SUBMIT
+========================================================== */
+#submitAnswer{
+    margin-top:35px;
+    min-width:220px;
+    max-width:280px;
+}
+/* ==========================================================
+FEEDBACK
+========================================================== */
+#quizFeedback{
+    min-height:30px;
+    margin-top:18px;
+}
+/* ==========================================================
+CRYING EMOJI
+========================================================== */
+.crying{
+    animation:cry 1s infinite;
+}
+@keyframes cry{
+0%{
+transform:rotate(0deg);
+}
+25%{
+transform:rotate(-10deg);
+}
+50%{
+transform:rotate(10deg);
+}
+75%{
+transform:rotate(-10deg);
+}
+100%{
+transform:rotate(0deg);
+}
+}
+/* ==========================================================
+   MOTORCYCLE SCREEN
+========================================================== */
+.motorcycleCard{
+    width:min(950px,95vw);
+    max-height:90vh;
+    position:relative;
+    overflow:auto;
+    display:flex;
+    flex-direction:column;
+}
+#motorcycleContainer{
+    position:relative;
+    width:min(850px,100%);
+    margin:40px auto;
+    flex-shrink:0;
+}
+#motorcycleImage{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:24px;
+    border:2px solid rgba(255,255,255,.12);
+    box-shadow:
+        0 0 25px rgba(217,4,41,.25),
+        0 0 25px rgba(37,99,235,.25);
+}
+/* ==========================================================
+   INVISIBLE HOTSPOT
+========================================================== */
+#seatHotspot{
+    position:absolute;
+    top:42%;
+    left:48%;
+    width:14%;
+    height:10%;
+    transform:translate(-50%,-50%);
+    background:transparent;
+    border:none;
+    cursor:default;
+    z-index:100;
+}
+@keyframes hotspotPulse{
+0%{
+box-shadow:
+0 0 5px rgba(255,255,255,.2);
+}
+50%{
+box-shadow:
+0 0 18px rgba(37,99,235,.6),
+0 0 30px rgba(217,4,41,.5);
+}
+100%{
+box-shadow:
+0 0 5px rgba(255,255,255,.2);
+}
+}
+/* ==========================================================
+   HINT TEXT
+========================================================== */
+#motorHint{
+    margin-top:20px;
+    min-height:28px;
+    opacity:.85;
+    font-size:17px;
+    text-align:center;
+}
+/* ==========================================================
+   SECRET POPUP
+========================================================== */
+#secretPopup .popupCard{
+    max-width:550px;
+}
+#secretPopup .popupIcon{
+    font-size:72px;
+    animation:jarBounce 2s infinite;
+}
+@keyframes jarBounce{
+0%{
+transform:translateY(0);
+}
+30%{
+transform:translateY(-8px);
+}
+60%{
+transform:translateY(0);
+}
+100%{
+transform:translateY(0);
+}
+}
+/* ==========================================================
+   MEMORY VAULT
+========================================================== */
+.vaultCard{
+    width:min(1000px,95vw);
+    max-height:90vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+/* ==========================================================
+   JAR GRID
+========================================================== */
+.jarGrid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(220px,1fr));
+    gap:25px;
+}
+/*==========================================================
+FINAL SPIDER
+==========================================================*/
+#vaultSpider{
+    position:absolute;
+    top:-80px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:40px;
+    cursor:pointer;
+    user-select:none;
+    opacity:0;
+    z-index:500;
+}
+#vaultSpider:hover{
+    transform:
+    translateX(-50%)
+    scale(1.2);
+    transition:.3s;
+}
+#vaultSpider::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:100%;
+    width:2px;
+    height:350px;
+    transform:translateX(-50%);
+    background:linear-gradient(
+        to top,
+        rgba(255,255,255,.9),
+        rgba(255,255,255,.15)
+    );
+}
+@keyframes spiderDrop{
+0%{
+    top:-220px;
+    opacity:0;
+}
+15%{
+    opacity:1;
+}
+100%{
+    top:170px;
+    opacity:1;
+}
+}
+@keyframes spiderSwing{
+0%{
+    transform:
+    translateX(-50%)
+    rotate(-4deg);
+}
+50%{
+    transform:
+    translateX(-50%)
+    rotate(4deg);
+}
+100%{
+    transform:
+    translateX(-50%)
+    rotate(-4deg);
+}
+}
+#vaultSpider.show{
+    animation:
+        spiderDrop 2.8s ease-out forwards,
+        spiderSwing 3s ease-in-out infinite 2.8s;
+}
+/* ==========================================================
+   MEMORY JAR
+========================================================== */
+.memoryJar{
+    position:relative;
+    padding:35px 20px;
+    border-radius:24px;
+    cursor:pointer;
+    overflow:hidden;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(14px);
+    transition:.35s;
+    min-height:220px;
+}
+.memoryJar::before{
+    content:"";
+    position:absolute;
+    top:-40%;
+    left:-40%;
+    width:180%;
+    height:180%;
+    background:
+    linear-gradient(
+        135deg,
+        rgba(217,4,41,.12),
+        rgba(37,99,235,.12),
+        transparent
+    );
+    transform:rotate(25deg);
+    transition:.5s;
+}
+.memoryJar:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:
+        0 0 20px rgba(217,4,41,.35),
+        0 0 20px rgba(37,99,235,.35);
+}
+.memoryJar:hover::before{
+    transform:
+        rotate(25deg)
+        translateY(25px);
+}
+/* ==========================================================
+   JAR EMOJI
+========================================================== */
+.jarEmoji{
+    font-size:60px;
+    margin-bottom:20px;
+    animation:jarFloat 3s ease-in-out infinite;
+}
+@keyframes jarFloat{
+0%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-8px);
+}
+100%{
+transform:translateY(0);
+}
+}
+.memoryJar h3{
+    margin-bottom:12px;
+    font-family:'Orbitron',sans-serif;
+    font-size:1.2rem;
+}
+.memoryJar p{
+    opacity:.85;
+    line-height:1.6;
+}
+/* ==========================================================
+   MEMORY POPUP
+========================================================== */
+.memoryCard{
+    width:min(700px,92vw);
+    max-height:90vh;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    box-sizing:border-box;
+    padding:30px;
+}
+#memoryTitle{
+    margin-bottom:25px;
+}
+#memoryContent{
+    flex:1;
+    min-height:0;
+    overflow-y:auto;
+    scroll-behavior:smooth;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-direction:column;
+    gap:20px;
+    padding:20px 12px;
+}
+#memoryContent p{
+    width:100%;
+    max-width:600px;
+    margin:auto;
+    text-align:justify;
+    white-space:pre-wrap;
+    line-height:1.9;
+    overflow-wrap:break-word;
+}
+#memoryContent img{
+    width:auto;
+    max-width:100%;
+    max-height:380px;
+    height:auto;
+    object-fit:cover;
+    border-radius:20px;
+    border:2px solid rgba(255,255,255,.12);
+    box-shadow:
+        0 0 18px rgba(217,4,41,.35),
+        0 0 18px rgba(37,99,235,.35);
+}
+#memoryCounter{
+    margin:18px 0;
+    opacity:.8;
+}
+/* ==========================================================
+   MEMORY BUTTONS
+========================================================== */
+#previousMemory,
+#nextMemory,
+#closeMemoryPopup{
+    min-width:150px;
+}
+/* ==========================================================
+   OPENED JAR
+========================================================== */
+.memoryJar.completed{
+    border-color:rgba(255,255,255,.35);
+    box-shadow:
+        0 0 20px rgba(37,99,235,.45),
+        0 0 20px rgba(217,4,41,.45);
+}
+.memoryJar.completed::after{
+    content:"✓";
+    position:absolute;
+    top:15px;
+    right:18px;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        90deg,
+        var(--red),
+        var(--blue)
+    );
+    font-weight:bold;
+}
+/* ==========================================================
+   LOVE LETTER
+========================================================== */
+.letterCard{
+    width:min(900px,95vw);
+    max-height:90vh;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+}
+#letterContent{
+    margin-top:30px;
+    flex:1;
+    min-height:0;
+    max-height:420px;
+    overflow-y:auto;
+    text-align:center;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.10);
+    line-height:2;
+    font-size:17px;
+    white-space:pre-wrap;
+    overflow-wrap:break-word;
+    scrollbar-width:thin;
+}
+#letterContent::-webkit-scrollbar{
+    width:8px;
+}
+#letterContent::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+        var(--red),
+        var(--blue)
+    );
+    border-radius:20px;
+}
+#skipTyping{
+    background:#333;
+}
+#finishLetter{
+    min-width:200px;
+}
+/* ==========================================================
+   ENDING SCREEN
+========================================================== */
+#letterContent{
+    margin-top:30px;
+    flex:1;
+    min-height:0;
+    max-height:420px;
+    overflow-y:auto;
+    text-align:left;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.10);
+    line-height:2;
+    font-size:17px;
+    white-space:pre-wrap;
+    overflow-wrap:break-word;
+    scrollbar-width:thin;
+}
+.endingCard h1{
+    margin-top:10px;
+}
+.endingCard p{
+    margin-top:25px;
+    font-size:18px;
+}
+#playAgain{
+    min-width:220px;
+    margin-top:20px;
+}
+/* ==========================================================
+   SCREEN TRANSITIONS
+========================================================== */
+.fadeIn{
+    animation:fadeIn .45s ease;
+}
+.fadeOut{
+    animation:fadeOut .45s ease forwards;
+}
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:scale(.96);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+@keyframes fadeOut{
+from{
+opacity:1;
+transform:scale(1);
+}
+to{
+opacity:0;
+transform:scale(.96);
+}
+}
+/* ==========================================================
+   HEART EFFECT
+========================================================== */
+.heart{
+    position:fixed;
+    font-size:26px;
+    pointer-events:none;
+    animation:heartRise 3s linear forwards;
+    z-index:9999;
+}
+@keyframes heartRise{
+0%{
+opacity:1;
+transform:
+translateY(0)
+scale(.8);
+}
+100%{
+opacity:0;
+transform:
+translateY(-35vh)
+scale(1.8);
+}
+}
+/* ==========================================================
+   CONFETTI PLACEHOLDER
+========================================================== */
+.confetti{
+    position:fixed;
+    width:10px;
+    height:10px;
+    pointer-events:none;
+    z-index:9999;
+    animation:confettiFall 4s linear forwards;
+}
+@keyframes confettiFall{
+0%{
+opacity:1;
+transform:
+translateY(-50px)
+rotate(0deg);
+}
+100%{
+opacity:0;
+transform:
+translateY(120vh)
+rotate(720deg);
+}
+}
+/* ==========================================================
+   HELPERS
+========================================================== */
+.hidden{
+    display:none !important;
+}
+.show{
+    display:flex !important;
+}
+.textCenter{
+    text-align:center;
+}
+.glow{
+    box-shadow:
+        0 0 20px rgba(217,4,41,.45),
+        0 0 20px rgba(37,99,235,.45);
+}
+/* ==========================================================
+   MEDIA QUERY
+   ============================================= */
+@media(max-width:768px){
+.lockIcon{
+    font-size:70px;
+}
+.passDot{
+    width:16px;
+    height:16px;
+}
+.keypad{
+    grid-template-columns:repeat(3,70px);
+    gap:12px;
+    }
+.key{
+    width:70px;
+    height:60px;
+    font-size:20px;
+    }
+.actionButton{
+    height:60px;
+    font-size:16px;
+}
+.popupCard{
+    padding:25px 20px;
+}
+.secretImage{
+    width:70vw;
+    max-width:240px;
+}
+.choiceGrid{
+    grid-template-columns:1fr;
+}
+.answerInput{
+    font-size:16px;
+    padding:16px;
+}
+.progressWrapper{
+    margin:25px 0;
+}
+.buttonGroup{
+        flex-direction:column;
+        align-items:center;
+    }
+    #closeMemoryPopup{
+        display:block;
+        margin:20px auto 0;
+    }
+    .backButton{
+        position:static;
+        display:block;
+        width:auto;
+        margin:0 auto 20px;
+    }
+.logoTitle{
+font-size:2.6rem;
+letter-spacing:2px;
+}
+h1{
+font-size:2.2rem;
+}
+h2{
+font-size:1.3rem;
+}
+.card{
+    width:95vw;
+    max-height:90vh;
+    padding:28px 20px;
+}
+.heroIcon{
+font-size:55px;
+}
+.introCard p{
+font-size:16px;
+}
+.buttonGroup button{
+    width:100%;
+    max-width:280px;
+}
+#closeMemoryPopup{
+    width:auto;
+}
+.buttonGroup{
+flex-direction:column;
+}
+.backButton{
+position:static;
+margin-bottom:20px;
+}
+.actionButton{
+height:65px;
+font-size:16px;
+}
+.secretImage{
+width:220px;
+height:220px;
+}
+.passDot{
+width:15px;
+height:15px;
+}
+.choiceGrid{
+grid-template-columns:1fr;
+}
+#questionText{
+font-size:1.35rem;
+min-height:90px;
+}
+.answerInput{
+font-size:16px;
+}
+#motorcycleContainer{
+margin-top:25px;
+}
+#seatHotspot{
+width:22%;
+height:24%;
+left:52%;
+top:43%;
+}
+#motorHint{
+font-size:16px;
+}
+.memoryCard{
+        width:95vw;
+        max-height:85vh;
+    }
+    #memoryContent{
+        padding:16px;
+    }
+    #memoryContent p{
+        font-size:16px;
+        line-height:1.7;
+    }
+    #memoryContent img{
+        max-height:260px;
+    }
+.jarGrid{
+grid-template-columns:1fr;
+}
+.memoryJar{
+padding:28px 18px;
+}
+.jarEmoji{
+font-size:48px;
+}
+#memoryContent{
+min-height:220px;
+}
+#memoryContent img{
+max-height:260px;
+}
+#letterContent{
+min-height:280px;
+max-height:350px;
+font-size:15px;
+padding:18px;
+}
+.endingCard p{
+font-size:16px;
+}
+#musicButton{
+    width:52px;
+    height:52px;
+    right:18px;
+    bottom:18px;
+    font-size:20px;
+}
+.motorcycleCard{
+    padding:20px;
+}
+#motorcycleContainer{
+    margin:25px auto;
+}
+#motorHint{
+    font-size:15px;
+}
+#seatHotspot{
+    width:18%;
+    height:12%;
+}
+.jarGrid{
+    grid-template-columns:1fr;
+    gap:18px;
+}
+.memoryJar{
+    padding:28px 18px;
+    min-height:auto;
+}
+.jarEmoji{
+    font-size:50px;
+}
+.memoryJar h3{
+    font-size:1.1rem;
+}
+.memoryJar p{
+    font-size:15px;
+}
+.memoryCard{
+    width:95vw;
+    max-height:88vh;
+    padding:20px;
+}
+#memoryContent{
+    padding:15px 10px;
+}
+#memoryContent p{
+    font-size:15px;
+    line-height:1.8;
+}
+#memoryContent img{
+    max-height:260px;
+}
+#previousMemory,
+#nextMemory,
+#closeMemoryPopup{
+    min-width:130px;
+}
+.letterCard{
+    width:95vw;
+    max-height:90vh;
+}
+#letterContent{
+    font-size:15px;
+    line-height:1.8;
+    padding:18px;
+    max-height:55vh;
+}
+#finishLetter{
+    min-width:180px;
+}
+.endingCard p{
+    font-size:16px;
+}
+#playAgain{
+    min-width:180px;
+}

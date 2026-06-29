@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>
+Happy 6th Monthsary ❤️
+</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+<link
+href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+<link
+rel="stylesheet"
+href="style.css">
+</head>
+<body>
+<!-- ======================================================
+BACKGROUND
+====================================================== -->
+<div id="background">
+<div id="backgroundOverlay"></div>
+<div id="webOverlay"></div>
+<div id="fogOverlay"></div>
+</div>
+<!-- ======================================================
+BACKGROUND MUSIC
+====================================================== -->
+<audio
+id="bgMusic"
+loop>
+<source
+src="assets/music/background.mp3"
+type="audio/mpeg">
+</audio>
+<button id="musicButton">🎵</button>
+<!-- ======================================================
+PARTICLES
+====================================================== -->
+<div id="particles"></div>
+<!-- ======================================================
+SPIDER
+====================================================== -->
+<div id="spider">
+🕷
+</div>
+<!-- ======================================================
+LOADING SCREEN
+====================================================== -->
+<section
+id="loadingScreen"
+class="screen active">
+<div class="loadingContainer">
+<h1 class="logoTitle">
+SPIDER-VERSE
+</h1>
+<h2>
+Happy 6th Monthsary ❤️
+</h2>
+<div class="loadingBar">
+<div id="loadingProgress"></div>
+</div>
+<p id="loadingText">
+Initializing...
+</p>
+<p id="loadingPercent">
+0%
+</p>
+</div>
+</section>
+<!-- ======================================================
+INTRO SCREEN
+====================================================== -->
+<section
+id="introScreen"
+class="screen">
+<div class="card introCard">
+<div class="heroIcon">
+🕷
+</div>
+<h1>
+Happy 6th Monthsary
+</h1>
+<h2>
+To My Favorite Person in Every Universe ❤️
+</h2>
+<p>
+Hi, Love. Welcome to our very own Spider-Verse. I made this little adventure just for you. Every page holds a memory, a surprise, and a piece of my heart. Now it's your turn to unlock them all.
+</p>
+<div class="buttonGroup">
+<button
+id="startGame">
+START ADVENTURE
+</button>
+</div>
+</div>
+</section>
+<!-- ======================================================
+LOCK SCREEN
+====================================================== -->
+<section
+id="lockScreen"
+class="screen">
+<div class="card lockCard">
+<button
+id="lockBackButton"
+class="backButton">
+← Back
+</button>
+<div class="lockIcon">
+🔒
+</div>
+<h1>🔒 Spider Society Archive</h1>
+<p>
+    STATUS: <strong>ACCESS DENIED</strong><br>
+    Authentication required to enter this universe.<br><br>
+    <span class="hint">
+        Hint: Try a date that's special to our story.
+    </span>
+</p>
+<!-- PASSCODE DISPLAY -->
+<div
+id="passcodeDisplay"
+class="passcodeDisplay">
+<span class="passDot"></span>
+<span class="passDot"></span>
+<span class="passDot"></span>
+<span class="passDot"></span>
+<span class="passDot"></span>
+<span class="passDot"></span>
+</div>
+<!-- MESSAGE -->
+<p
+id="lockMessage"
+class="lockMessage">
+Enter a 6-digit passcode
+</p>
+<!-- NUMPAD -->
+<div class="keypad">
+<button class="key" data-key="1">1</button>
+<button class="key" data-key="2">2</button>
+<button class="key" data-key="3">3</button>
+<button class="key" data-key="4">4</button>
+<button class="key" data-key="5">5</button>
+<button class="key" data-key="6">6</button>
+<button class="key" data-key="7">7</button>
+<button class="key" data-key="8">8</button>
+<button class="key" data-key="9">9</button>
+<button id="deleteButton" class="actionButton">⌫</button>
+<button class="key" data-key="0">0</button>
+<button id="enterButton" class="actionButton primaryButton">🕷</button>
+</div>
+</div>
+</section>
+<!-- ======================================================
+WRONG PASSWORD POPUP
+====================================================== -->
+<div
+id="wrongPasswordPopup"
+class="popup">
+<div class="popupCard">
+<div class="popupIcon">
+🥺
+</div>
+<h2>
+Oops!
+</h2>
+<p>
+That's not the correct passcode.
+Try another special date.
+</p>
+<button
+id="closeWrongPassword">
+Try Again
+</button>
+</div>
+</div>
+<!-- ======================================================
+BIRTHDAY SECRET
+====================================================== -->
+<section
+id="birthdayScreen"
+class="screen">
+<div class="card">
+<h1>
+Secret Spider Files Unlocked!
+</h1>
+<img
+src="assets/images/boyfriend.jpg"
+alt="Boyfriend"
+class="secretImage">
+<p>
+Classified photos of my favorite Spider-Man have been revealed. Warning: Extreme levels of cuteness and silliness ahead. 🤭❤️
+</p>
+<button
+class="backToLockButton primaryButton">
+Back to Lock
+</button>
+</div>
+</section>
+<!-- ======================================================
+MONTHSARY SECRET
+====================================================== -->
+<section
+id="monthsaryScreen"
+class="screen">
+<div class="card">
+<h1>
+🔍 Spider-Verse Discovery!
+</h1>
+<img
+src="assets/images/us.jpg"
+alt="Us"
+class="secretImage">
+<p>
+Researchers have uncovered a rare, unedited, and completely authentic image of Spider-Man and Gwen without their masks. Evidence suggests they're very much in love. ❤️🤭
+</p>
+<button
+class="backToLockButton primaryButton">
+Back to Lock
+</button>
+</div>
+</section>
+<!-- ======================================================
+QUIZ SCREEN
+====================================================== -->
+<section
+id="quizScreen"
+class="screen">
+<div class="card quizCard">
+<button
+id="quizBackButton"
+class="backButton">
+← Back
+</button>
+<h1>
+Your Next Mission
+</h1>
+<p>
+Every Spider-Verse has its own story... let's see how well you know ours. 🕸️❤️
+</p>
+<!-- PROGRESS -->
+<div class="progressWrapper">
+<div class="progressBar">
+<div
+id="quizProgress">
+</div>
+</div>
+<p id="questionCounter">
+Question 1 / 10
+</p>
+</div>
+<!-- QUESTION -->
+<div class="questionContainer">
+<h2
+id="questionText">
+Question goes here
+</h2>
+<!-- ANSWER AREA -->
+<div
+id="answerContainer">
+<!--
+JavaScript will automatically insert:
+1. Text input
+OR
+2. Multiple choice buttons
+-->
+</div>
+</div>
+<!-- FEEDBACK -->
+<div
+id="quizFeedback">
+</div>
+<!-- ACTION -->
+<div class="buttonGroup">
+<button
+id="submitAnswer"
+class="primaryButton">
+Submit Answer
+</button>
+</div>
+</div>
+</section>
+<!-- ======================================================
+CORRECT POPUP
+====================================================== -->
+<div id="correctPopup" class="popup">
+    <div class="popupCard">
+        <div class="popupIcon">❤️</div>
+        <h2>Correct!</h2>
+        <p>Nice job!</p>
+    </div>
+</div>
+<!-- ======================================================
+WRONG POPUP
+====================================================== -->
+<div id="wrongPopup" class="popup">
+    <div class="popupCard">
+        <div class="popupIcon">😅</div>
+        <h2>Wrong!</h2>
+        <p>Try again.</p>
+    </div>
+</div>
+<!-- ======================================================
+MOTORCYCLE EASTER EGG
+====================================================== -->
+<section
+id="motorcycleScreen"
+class="screen">
+<div class="card motorcycleCard">
+<button
+id="motorBackButton"
+class="backButton">
+← Back
+</button>
+<h1>
+Hidden Mission
+</h1>
+<p>
+A secret is hidden somewhere inside your motorcycle.
+Can you find it?
+</p>
+<div
+id="motorcycleContainer">
+<img
+id="motorcycleImage"
+src="assets/images/motorcycle.png"
+alt="Motorcycle">
+<!-- Invisible Hotspot -->
+<div
+id="seatHotspot"
+title="">
+</div>
+</div>
+<p
+id="motorHint">
+Try clicking somewhere on the motorcycle...
+</p>
+</div>
+</section>
+<!-- ======================================================
+SECRET COMPARTMENT POPUP
+====================================================== -->
+<div
+id="secretPopup"
+class="popup">
+<div class="popupCard">
+<div class="popupIcon">
+🫙
+</div>
+<h2>
+Secret Compartment Found!
+</h2>
+<p>
+Inside the compartment are four memory jars.
+Each one hides something special.
+</p>
+<div class="buttonGroup">
+<button
+id="closeSecretPopup">
+Back
+</button>
+<button
+id="openVault"
+class="primaryButton">
+Open Memory Vault
+</button>
+</div>
+</div>
+</div>
+<!-- ======================================================
+MEMORY VAULT
+====================================================== -->
+<section
+id="vaultScreen"
+class="screen">
+<div class="card vaultCard">
+<button
+id="vaultBackButton"
+class="backButton">
+← Back
+</button>
+<h1>
+Memory Vault
+</h1>
+<p>
+Every jar contains a piece of my heart.
+Open them all to unlock my final letter.
+</p>
+<div class="jarGrid">
+    <!-- LOVE -->
+    <div
+    class="memoryJar"
+    data-jar="love">
+        <div class="jarEmoji">
+        ❤️
+        </div>
+        <h3>
+        Reasons Why I Love You
+        </h3>
+    </div>
+    <!-- SORRY -->
+    <div
+    class="memoryJar"
+    data-jar="sorry">
+        <div class="jarEmoji">
+        🥺
+        </div>
+        <h3>
+        Things I'm Sorry About
+        </h3>
+    </div>
+    <!-- MEMORIES -->
+    <div
+    class="memoryJar"
+    data-jar="memories">
+        <div class="jarEmoji">
+        ✨
+        </div>
+        <h3>
+        Favorite Memories
+        </h3>
+    </div>
+    <!-- PHOTOS -->
+    <div
+    class="memoryJar"
+    data-jar="photos">
+        <div class="jarEmoji">
+        📸
+        </div>
+        <h3>
+        Favorite Photos
+        </h3>
+    </div>
+</div>
+<!-- FINAL SPIDER -->
+<div
+id="vaultSpider"
+class="hidden">
+🕷️
+</div>
+</div>
+</section>
+<!-- ======================================================
+MEMORY POPUP
+====================================================== -->
+<div
+id="memoryPopup"
+class="popup">
+<div class="popupCard memoryCard">
+<h2
+id="memoryTitle">
+Memory
+</h2>
+<!-- Message OR Photo -->
+<div
+id="memoryContent">
+<!-- JavaScript will insert
+either text or an image here -->
+</div>
+<!-- Counter -->
+<p
+id="memoryCounter">
+1 / 6
+</p>
+<!-- Navigation -->
+<div class="buttonGroup">
+<button
+id="previousMemory">
+◀ Previous
+</button>
+<button
+id="nextMemory"
+class="primaryButton">
+Next ▶
+</button>
+</div>
+<!-- Close -->
+<button
+id="closeMemoryPopup"
+class="secondaryButton">
+Close
+</button>
+<button
+id="continueLetter"
+class="primaryButton hidden">
+Continue to My Final Letter ❤️
+</button>
+</div>
+</div>
+<!-- ======================================================
+LOVE LETTER
+====================================================== -->
+<section
+id="letterScreen"
+class="screen">
+<div class="card letterCard">
+<button
+id="letterBackButton"
+class="backButton">
+← Back
+</button>
+<h1>
+A Letter From My Heart ❤️
+</h1>
+<p>
+You unlocked everything...
+Now it's finally time to read my letter.
+</p>
+<div
+id="letterContent">
+<!-- JavaScript will type the letter here -->
+</div>
+<div class="buttonGroup">
+<button
+id="skipTyping">
+Skip Animation
+</button>
+<button
+id="finishLetter"
+class="primaryButton">
+Continue
+</button>
+</div>
+</div>
+</section>
+<!-- ======================================================
+ENDING SCREEN
+====================================================== -->
+<section
+id="endingScreen"
+class="screen">
+<div class="card endingCard">
+<div class="heroIcon">
+🕸
+</div>
+<h1>
+Mission Complete
+</h1>
+<h2>
+Happy 6th Monthsary ❤️
+</h2>
+<p>
+Congratulations, Love. You unlocked every memory, every secret, every surprise, and finally... my whole heart. Thank you for taking this little Spider-Verse adventure with me. I hope you appreciate this simple gift I made just for you. It may not be perfect, but every part of it was made with love. I love you always. ❤️
+</p>
+<div class="buttonGroup">
+<button
+id="playAgain">
+Play Again
+</button>
+</div>
+</div>
+</section>
+<!-- ======================================================
+END OF WEBSITE
+====================================================== -->
+<script src="script.js"></script>
+</body>
+</html>

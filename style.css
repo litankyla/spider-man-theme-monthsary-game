@@ -527,14 +527,24 @@ POPUPS
     font-size:70px;
     margin-bottom:20px;
 }
+.popupImage{
+    width:200px;
+    height:200px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+}
+
+
 /* ==========================================================
 SECRET SCREENS
 ========================================================== */
 .secretImage{
-    width:min(280px,80vw);
-    aspect-ratio:1/1;
+    width:100%;
+    max-width:350px;
+    max-height:420px;
     height:auto;
-    object-fit:cover;
+    object-fit:contain;
     border-radius:22px;
     margin:30px auto;
     display:block;

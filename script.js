@@ -271,12 +271,12 @@ type:"text",
 question:"Where was our first date?",
 answers:["benoks"],
 correctPopup:{
-    emoji:"🥰",
-    title:"",
+    image:"assets/images/happy-kyla.png",
+    title:"🥰🥰🥰",
     message:""
 },
 wrongPopup:{
-    emoji:"😡",
+    image:"assets/images/disappointed-hamir.png",
     title:"Tatamaan ka!",
     message:"Sinong kadate mo diyan?!"
 }
@@ -286,12 +286,12 @@ type:"text",
 question:"Where was our first kiss?",
 answers:["baywalk","tanauan"],
 correctPopup:{
-    emoji:"🥰",
-    title:"",
+    image:"assets/images/happy-kyla.png",
+    title:"🥰🥰🥰",
     message:""
 },
 wrongPopup:{
-    emoji:"😡",
+    image:"assets/images/disappointed-hamir.png",
     title:"Tatamaan ka!",
     message:"Sinong kiniss kaya?!"
 }
@@ -301,12 +301,12 @@ type:"text",
 question:"Where did we first meet?",
 answers:["results","resultscx","work"],
 correctPopup:{
-    emoji:"🥰",
-    title:"",
+    image:"assets/images/happy-kyla.png",
+    title:"🥰🥰🥰",
     message:""
 },
 wrongPopup:{
-    emoji:"😡",
+    image:"assets/images/disappointed-hamir.png",
     title:"Tatamaan ka!",
     message:"Ibang babae kinita mo diyan siguro."
 }
@@ -316,12 +316,12 @@ type:"text",
 question:"When is my birthdate? (MM-DD-YY)",
 answers:["11-14-02"],
 correctPopup:{
-    emoji:"🥰",
-    title:"",
+    image:"assets/images/happy-kyla.png",
+    title:"🥰🥰🥰",
     message:""
 },
 wrongPopup:{
-    emoji:"🥲",
+    image:"assets/images/sad-hamir.png",
     title:"Awww..",
     message:"Hindi ko birthday 'yan :<"
 }
@@ -337,8 +337,8 @@ choices:[
 ],
 answer:"Pink and Blue",
 correctPopup:{
-    emoji:"🥰",
-    title:"",
+    image:"assets/images/happy-kyla.png",
+    title:"🥰🥰🥰",
     message:""
 },
 wrongPopup:{
@@ -358,12 +358,12 @@ choices:[
 ],
 answer:"Brown",
 correctPopup:{
-    emoji:"🥰",
-    title:"",
+    image:"assets/images/happy-kyla.png",
+    title:"🥰🥰🥰",
     message:""
 },
 wrongPopup:{
-    emoji:"🙈",
+    image:"assets/images/angry-hamir.png",
     title:"Look closer!",
     message:"You're supposed to stare into my eyes, remember? Try again. 😆"
 }
@@ -379,12 +379,12 @@ choices:[
 ],
 answer:"Jollibee",
 correctPopup:{
-    emoji:"🥰",
-    title:"",
+    image:"assets/images/happy-kyla.png",
+    title:"🥰🥰🥰",
     message:""
 },
 wrongPopup:{
-    emoji:"🍔",
+    image:"assets/images/sad-hamir.png",
     title:"Nope!",
     message:"Hehe... that's not my favorite po."
 }
@@ -399,11 +399,11 @@ choices:[
 noRightWrong:true,
 answer:"Yes ❤️",
 correctPopup:{
-    emoji:"🥹❤️",
+    image:"assets/images/happy-kyla.png",
     message:"Awww, thank you, love. Hearing that from you always makes me smile. But more than feeling pretty, I'm happiest knowing that I'm loved by you. ❤️"
 },
 wrongPopup:{
-    emoji:"🥺",
+    image:"assets/images/sad-hamir.png",
     title:"Thank you for being honest.",
     message:"Beauty is different for everyone, and I respect your honesty. Even so, thank you for loving me for who I am, beyond appearances. That's what matters most to me. ❤️"
 }
@@ -418,11 +418,11 @@ choices:[
 noRightWrong:true,
 answer:"Yes ❤️",
 correctPopup:{
-    emoji:"❤️🥹",
+    image:"assets/images/happy-kyla.png",
     message:"Thank you for choosing to love me every single day. I love you so much too, and I'll continue choosing you every day as well. ❤️"
 },
 wrongPopup:{
-    emoji:"🥺",
+    image:"assets/images/sad-hamir.png",
     title:"Thank you for being honest.",
     message:"If that's truly how you feel, thank you for answering honestly. Even if it's difficult to hear, I'd rather know the truth than be given an answer you don't genuinely mean. No matter what happens, thank you for taking the time to play this little adventure I made for you. ❤️"
 }
@@ -437,12 +437,12 @@ choices:[
 noRightWrong:true,
 answer:"No",
 correctPopup:{
-    emoji:"💍❤️",
+    image:"assets/images/happy-kyla.png",
     title:"Thank you...",
     message:"That means more to me than you know. I hope we continue choosing each other through every challenge, and I can't wait to create even more memories with you."
 },
 wrongPopup:{
-    emoji:"🥺",
+    image:"assets/images/sad-hamir.png",
     title:"Thank you for being honest.",
     message:"Relationships aren't always easy, and I appreciate your honesty. I hope we'll always choose to talk things through instead of giving up on each other. I love you. ❤️"
 }
@@ -524,29 +524,74 @@ function normalizeAnswer(text){
 SHOW POPUPS
 ==========================================================*/
 function showCorrectPopup(data){
-    correctPopup.querySelector(".popupIcon").textContent =
-    data.emoji;
+
+    const icon =
+    correctPopup.querySelector(".popupIcon");
+
+    if(data.image){
+
+        icon.innerHTML =
+        `<img src="${data.image}" class="popupImage" alt="">`;
+
+    }
+
+    else{
+
+        icon.textContent =
+        data.emoji;
+
+    }
+
     correctPopup.querySelector("h2").textContent =
     data.title;
+
     correctPopup.querySelector("p").textContent =
     data.message;
+
     correctPopup.classList.add("show");
+
     setTimeout(()=>{
+
         correctPopup.classList.remove("show");
+
     },1600);
+
 }
 function showWrongPopup(data){
-    wrongPopup.querySelector(".popupIcon").textContent =
-    data.emoji;
+
+    const icon =
+    wrongPopup.querySelector(".popupIcon");
+
+    if(data.image){
+
+        icon.innerHTML =
+        `<img src="${data.image}" class="popupImage" alt="">`;
+
+    }
+
+    else{
+
+        icon.textContent =
+        data.emoji;
+
+    }
+
     wrongPopup.querySelector("h2").textContent =
     data.title;
+
     wrongPopup.querySelector("p").textContent =
     data.message;
+
     wrongPopup.classList.add("show");
+
     setTimeout(()=>{
+
         wrongPopup.classList.remove("show");
+
     },1600);
+
 }
+
 /*==========================================================
 CHECK ANSWER
 ==========================================================*/
@@ -879,12 +924,7 @@ vaultSpider.addEventListener("click",()=>{
     showScreen("letterScreen");
     startLetter();
 });
-// continueLetter.addEventListener("click",()=>{
-//     memoryPopup.classList.remove("show");
-//     continueLetter.classList.add("hidden");
-//     showScreen("letterScreen");
-//     startLetter();
-// });
+
 /*----------------------------------------------------------
 CLOSE POPUP
 ----------------------------------------------------------*/
